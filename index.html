@@ -4,7 +4,118 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <style>*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width:1440px) {
+  
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: hsl(218, 23%, 16%);
+}
+img{
+  max-width: 100% ;
+  display: block;
+}
+p{
+  text-align: center;
+  font-size: 13px;
+  font-weight: 100;
+  color:hsl(150, 100%, 66%);
+  margin: 10px;
+}
+.main-content{
+  background-color:hsl(217, 19%, 24%);
+  max-width: 450px;
+  height: 300px;
+  padding: 15px;
+  align-items: center;
+  border-radius: 20px;
+}
+.conter, .conte{
+  display: none;
+}
+.content{
+  padding-top: 10px;
+  margin: 0 auto;
+  width: 390px;
+  height: 170px;
+  text-align: center;
+  font-weight: 100;
+  color: hsl(193, 38%, 86%);
+  font-size: 26px;
+}
+.hidden{
+  display: none;
+}
+.main-content .desktop{
+  margin-top: 7px;
+  margin-bottom: 37px;
+}
+.main-content .dice{
+  margin-left: 185px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: hsl(150, 100%, 66%);
+}
+
+.main-content .dice:hover{
+  box-shadow: 2px 2px 20px 15px hsla(150, 100%, 66%, 0.405);
+  cursor: pointer;
+}
+
+}
+@media (max-width:480px) {
+
+  .main-content{
+  background-color:hsl(217, 19%, 24%);
+  max-width: 350px;
+  height: 245px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 20px;
+}
+.content{
+  width: 280px;
+  height: 150px;
+  color: hsl(193, 38%, 86%);
+  font-size: 18px;
+}
+p{
+  text-align: center;
+}
+.main-content .desktop{
+  display: none;
+}
+.hidden{
+  display: block;
+}
+.main-content .mobile{
+  margin-top: -9px;
+}
+.main-content .dice{
+  margin-top: 24px;
+  position: absolute;
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  margin-left:125px;
+  background-color: hsl(150, 100%, 66%);
+}
+
+}</style>
   <link rel="icon" href="favicon-32x32.png">
   <title>Advice Generator</title>
 </head>
@@ -19,6 +130,54 @@
     <img src="pattern-divider-mobile.svg" class="mobile hidden">
    <div class="dice"><img src="icon-dice.svg" class="imagem"></div>
   </div>  
-  <script src="./script.js"></script>
+  <script>'use strict';
+
+let numero = document.querySelector('.numero');
+let trocar = document.querySelectorAll('.conte');
+let content = document.querySelector('.content');
+let dice = document.querySelector('.dice');
+let imagem =document.querySelector('.imagem');
+
+let conteudo = [
+  '"They will always pretend, untill they do not, so, be smart, because been bad is borring."',
+  '<br>"I knew it, but i did not care, love make us blind, bad."',
+  '"Making love, is better than making war, think twice when you decide to kick ass of someone."',
+  '<br>"It is easy to sit up and take notice, what is difficult is geting up and take action."',
+  '<br>"Either you run the day, or the day runs you!"',
+  '"Sex is always about emotions. Good sex is about free emotuons; bad sex is about blocked emotions."',
+  '"Even when you did lost everything you thought there was to lo lose, somebody came along and gave you something for free."',
+  '"The truly free man is the one who can turn down an invitation to dinner without giving an excuse."',
+  '"Our task must be to free ourselves... by widening our circle of compassion to embrace all living creatures and the whole of nature and it is beauty."',
+  '"Maybe some women arnoe t meant to be tamed. Maybe they just need to run free until they find someone just as wild to run with them."',
+  '<br>"Man cannot be freed by the same injustice that enslaved it."',
+  '"...The church, the state, the school, the magazine, think they are liberal and free! It is the freedom of a prison-yard."',
+  '<br>"Bury us, and mark our names above. Let us be free."',
+  '"There is strange comfort in knowing that no matter what happens today, the Sun will rise again tomorrow."',
+  '"If all men are born free, how is it that all women are born slaves?"'
+
+]
+
+dice.addEventListener('click', function(){
+
+  let contador = Math.floor(Math.random()*conteudo.length);
+
+  let display = conteudo[contador];
+
+  content.innerHTML = display;
+  numero.textContent = contador;
+  /*
+  numero.textContent = contador;
+  content.textContent = trocar[contador].textContent; */
+
+  console.log(contador)
+  console.log(display)
+
+})
+
+
+
+
+
+</script>
 </body>
 </html>
